@@ -5,7 +5,7 @@ exports.handler = function (event, context, callback) {
 	sqs.receiveMessage({
 		QueueUrl: 'https://sqs.us-east-1.amazonaws.com/318300609668/SQSValidate',
 		AttributeNames: ['All'],
-		MaxNumberOfMessages: '6',
+		MaxNumberOfMessages: '1',
 		VisibilityTimeout: '30',
 		WaitTimeSeconds: '0'
 	}, function (receivedMessages) {
@@ -16,6 +16,7 @@ exports.handler = function (event, context, callback) {
 	}, function (error) {
 		// implement error handling logic here
 	});
+
 
 
 	callback(null, 'Successfully executed');
